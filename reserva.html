@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Fumada del Año - VIP Experience</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: black;
+            color: white;
+            margin: 0;
+            padding: 20px;
+        }
+        h1, h2 {
+            text-align: center;
+        }
+        h1 {
+            color: #E0E0E0;
+        }
+        h2, #countdown {
+            color: #B0B0B0;
+            margin-bottom: 20px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li::before {
+            content: "✓";
+            color: #4CAF50;
+            margin-right: 8px;
+        }
+        form {
+            background-color: #333;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            max-width: 500px;
+            margin: 20px auto;
+        }
+        label, .contact-info {
+            font-weight: bold;
+            display: block;
+            margin-top: 20px;
+            text-align: center;
+            color: white;
+            text-decoration: none;
+        }
+        input[type="text"], select, .btn-reservar {
+            width: 100%;
+            padding: 15px 30px;
+            margin-top: 5px;
+            border-radius: 5px;
+            border: 1px solid #555;
+            background-color: #222;
+            color: white;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+        .btn-reservar {
+            background-color: #4CAF50;
+            cursor: pointer;
+            border: none;
+            display: block;
+            width: calc(100% - 60px);
+            margin: 10px auto;
+            padding: 15px 30px;
+            font-size: 16px;
+            color: white;
+            border-radius: 5px;
+        }
+        .btn-reservar:hover {
+            background-color: #45a049;
+        }
+        .contact-section {
+            background-color: #333;
+            padding: 20px;
+            text-align: center;
+        }
+        .contact-icons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+        .contact-icons a {
+            color: white;
+            text-decoration: none;
+        }
+        .contact-icons a img {
+            width: 24px;
+            height: 24px;
+        }
+        .footer-section {
+            background-color: black;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .information {
+            font-weight: bold;
+        }
+        .vip-image {
+            display: block;
+            max-width: 500px;
+            margin: 20px auto;
+        }
+        .form-group {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+        .form-group select {
+            width: 48%; /* Ajuste para que ambos selectores tengan el mismo ancho y se coloquen lado a lado */
+        }
+    </style>
+</head>
+<body>
+    <h1>La Fumada del Año</h1>
+    <h2>VIP EXPERIENCE</h2>
+    <ul>
+        <li>Mesa al lado del ring</li>
+        <li>Botella a elegir</li>
+        <li>Cachimba incluida con la reserva</li>
+    </ul>
+    <p id="countdown">Cargando cuenta regresiva...</p>
+    <!-- Formulario de Reserva -->
+    <form id="booking-form">
+        <label for="name">Nombre para la reserva:</label>
+        <input type="text" id="name" name="name" required><br><br>
+        <div class="form-group">
+            <select id="bottle" name="bottle" required>
+                <option value="" disabled selected>Selecciona tu botella</option>
+                <option value="jagermeister">Jägermeister</option>
+                <option value="puerto_de_indias">Puerto de Indias</option>
+                <option value="ballantines">Ballantine's</option>
+                <option value="absolut_vodka">Absolut Vodka</option>
+                <option value="ron_barcelo">Ron Barceló</option>
+            </select>
+            <select id="cachimbas" name="cachimbas" required>
+                <option value="" disabled selected>Cantidad de cachimbas</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+            </select>
+        </div>
+        <button type="button" class="btn-reservar" onclick="validarFormulario()">Reservar</button>
+    </form>
+    <!-- Imagen VIP ZONE -->
+    <div>
+        <img src="images/vipzone.png" alt="VIP ZONE" class="vip-image">
+    </div>
+    <!-- Sección de contacto -->
+    <div class="contact-section">
+        <h2>Álvaro</h2>
+        <div class="contact-icons">
+            <a href="https://wa.me/34684252809">
+                <img src="images/whatsapp.png" alt="WhatsApp">
+            </a>
+            <a href="tel:+34684252809">
+                <img src="images/llamada.png" alt="Teléfono">
+            </a>
+        </div>
+        <div class="contact-info">
+            +34 684 25 28 09
+        </div>
+    </div>
+    <!-- Sección del pie de página con información de la empresa -->
+    <div class="footer-section">
+        <h3>La Fumada del Año</h3>
+        <p>C/ Catalunya, 2, 08781 Els Hostalets de Pierola, Barcelona</p>
+        <div class="information">Information</div>
+        <p>info@godshishaspain.com</p>
+        <p>+34 684 25 28 09</p>
+        <a href="https://www.instagram.com/lafumadaboxing/" target="_blank">
+            <img src="images/instagram.png" alt="Instagram" style="width: 30px; height: 30px;">
+        </a>
+    </div>
+    <script>
+        function validarFormulario() {
+            var name = document.getElementById('name').value;
+            var bottle = document.getElementById('bottle').value;
+            var cachimbas = document.getElementById('cachimbas').value;
+            if (name && bottle && cachimbas) {
+                var message = encodeURIComponent(`¡Buenas, quisiera hacer una reserva a nombre de ${name}, quiero una botella de ${bottle} y ${cachimbas} cachimba(s)!`);
+                var whatsappUrl = `https://wa.me/34684252809?text=${message}`;
+                window.location.href = whatsappUrl;
+            } else {
+                alert("Por favor, completa todos los campos antes de reservar.");
+            }
+        }
+
+        // Script para la cuenta regresiva...
+        var countdownDate = new Date("Aug 31, 2024 20:00:00").getTime();
+        var x = setInterval(function() {
+            var now = new Date().getTime();
+            var distance = countdownDate - now;
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            document.getElementById("countdown").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("countdown").innerHTML = "El evento ha comenzado";
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
