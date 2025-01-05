@@ -58,6 +58,33 @@
         .sticky-banner.show {
             display: block;
         }
+
+        .slider {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            max-width: 800px; /* Tamaño máximo del slider */
+            margin: 0 auto;
+            height: 400px; /* Altura fija del slider */
+        }
+
+        .slider img {
+            width: 100%;
+            height: auto;
+            max-height: 100%; /* Ajustar altura máxima */
+            display: none;
+            position: absolute;
+            transition: opacity 1s;
+        }
+
+        .slider img.active {
+            display: block;
+            opacity: 1;
+        }
+
+        .slider img.inactive {
+            opacity: 0;
+        }
     </style>
 </head>
 <body>
