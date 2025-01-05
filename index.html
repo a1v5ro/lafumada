@@ -163,6 +163,29 @@
             margin: 0 10px;
             cursor: pointer;
         }
+
+        .floating-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background: url('fotos/whatsapp2.png') no-repeat center center;
+            background-size: cover;
+            border-radius: 50%;
+            cursor: pointer;
+            animation: pump 8s infinite;
+            z-index: 1000;
+        }
+
+        @keyframes pump {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
     </style>
 </head>
 <body>
@@ -237,6 +260,8 @@
             <img src="fotos/logo1.png" alt="GodNights">
         </div>
     </footer>
+
+    <a href="https://wa.me/34684252809" class="floating-button"></a>
 
     <script>
         function nextImage(sliderId) {
