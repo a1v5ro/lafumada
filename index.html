@@ -9,6 +9,18 @@
     <title>GodNights - Catering de Cachimbas</title>
     <link rel="stylesheet" href="styles.css">
     <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            box-sizing: border-box;
+        }
+
+        .container {
+            margin: 0 auto;
+            max-width: 73.34%; /* 100% - 13.33% de margen a cada lado */
+        }
+
         .hero {
             background: url('fotos/cateringcachimba1.jpg') no-repeat center center/cover;
             color: #fff;
@@ -117,7 +129,7 @@
         <p>Catering Premium de Cachimbas - <a href="#" class="cta">Contactar por WhatsApp</a></p>
     </div>
 
-    <header>
+    <header class="container">
         <div class="logo">
             <img src="fotos/logo1.png" alt="GodNights">
         </div>
@@ -138,7 +150,7 @@
         <a href="https://wa.me/34684252809" class="cta">Contactar por WhatsApp</a>
     </section>
 
-    <section id="catering" class="servicios">
+    <section id="catering" class="servicios container">
         <h2>Servicios de Catering</h2>
         <p>Ofrecemos una experiencia única con cachimbas premium para todo tipo de eventos. Nuestro equipo asegura calidad, diseño y satisfacción en cada sesión.</p>
         <div class="slider" id="cateringSlider">
@@ -153,7 +165,7 @@
         </div>
     </section>
 
-    <section id="alquiler" class="alquiler">
+    <section id="alquiler" class="alquiler container">
         <h2>Alquiler de Cachimbas</h2>
         <p>Ofrecemos cachimbas de alta calidad en alquiler para eventos. Incluye carbón natural, boquillas higiénicas y sabores premium.</p>
         <div class="slider" id="alquilerSlider">
@@ -167,7 +179,7 @@
         </div>
     </section>
 
-    <section id="contacto" class="contacto">
+    <section id="contacto" class="contacto container">
         <h2>Contacto</h2>
         <p>Para más información o presupuestos, contáctanos por WhatsApp o correo electrónico.</p>
         <a href="https://wa.me/34684252809" class="cta">Contactar por WhatsApp</a>
@@ -186,7 +198,7 @@
         </form>
     </section>
 
-    <footer>
+    <footer class="container">
         <p>&copy; 2025 GodNights. Todos los derechos reservados.</p>
     </footer>
 
@@ -223,4 +235,3 @@
     </script>
 </body>
 </html>
-
