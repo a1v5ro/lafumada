@@ -3,212 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>La Fumada del Año - VIP Experience</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: black;
-            color: white;
-            margin: 0;
-            padding: 20px;
-        }
-        h1, h2 {
-            text-align: center;
-        }
-        h1 {
-            color: #E0E0E0;
-        }
-        h2, #countdown {
-            color: #B0B0B0;
-            margin-bottom: 20px;
-        }
-        ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        li::before {
-            content: "✓";
-            color: #4CAF50;
-            margin-right: 8px;
-        }
-        form {
-            background-color: #333;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            max-width: 500px;
-            margin: 20px auto;
-        }
-        label, .contact-info {
-            font-weight: bold;
-            display: block;
-            margin-top: 20px;
-            text-align: center;
-            color: white;
-            text-decoration: none;
-        }
-        input[type="text"], select, .btn-reservar {
-            width: 100%;
-            padding: 15px 30px;
-            margin-top: 5px;
-            border-radius: 5px;
-            border: 1px solid #555;
-            background-color: #222;
-            color: white;
-            box-sizing: border-box;
-            font-size: 16px;
-        }
-        .btn-reservar {
-            background-color: #4CAF50;
-            cursor: pointer;
-            border: none;
-            display: block;
-            width: calc(100% - 60px);
-            margin: 10px auto;
-            padding: 15px 30px;
-            font-size: 16px;
-            color: white;
-            border-radius: 5px;
-        }
-        .btn-reservar:hover {
-            background-color: #45a049;
-        }
-        .contact-section {
-            background-color: #333;
-            padding: 20px;
-            text-align: center;
-        }
-        .contact-icons {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-        }
-        .contact-icons a {
-            color: white;
-            text-decoration: none;
-        }
-        .contact-icons a img {
-            width: 24px;
-            height: 24px;
-        }
-        .footer-section {
-            background-color: black;
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
-        .information {
-            font-weight: bold;
-        }
-        .vip-image {
-            display: block;
-            max-width: 100%;
-            height: auto;
-            margin: 20px auto;
-        }
-        .form-group {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 15px;
-        }
-        .form-group select {
-            width: 48%; /* Ajuste para que ambos selectores tengan el mismo ancho y se coloquen lado a lado */
-        }
-    </style>
+    <meta name="description" content="Catering profesional de cachimbas para eventos: discotecas, bodas, festivales y más. Contacta con nosotros para un servicio exclusivo y de calidad.">
+    <meta name="keywords" content="catering cachimbas, eventos, discotecas, bodas, festivales, shishas premium">
+    <meta name="author" content="God Shisha Spain">
+    <title>God Shisha Spain - Catering de Cachimbas</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>La Fumada del Año</h1>
-    <h2>VIP EXPERIENCE</h2>
-    <ul>
-        <li>Mesa al lado del ring</li>
-        <li>Botella a elegir</li>
-        <li>Cachimba incluida con la reserva</li>
-    </ul>
-    <p id="countdown">Cargando cuenta regresiva...</p>
-    <!-- Formulario de Reserva -->
-    <form id="booking-form">
-        <label for="name">Nombre para la reserva:</label>
-        <input type="text" id="name" name="name" required><br><br>
-        <div class="form-group">
-            <select id="bottle" name="bottle" required>
-                <option value="" disabled selected>Selecciona tu botella</option>
-                <option value="jagermeister">Jägermeister</option>
-                <option value="puerto_de_indias">Puerto de Indias</option>
-                <option value="ballantines">Ballantine's</option>
-                <option value="absolut_vodka">Absolut Vodka</option>
-                <option value="ron_barcelo">Ron Barceló</option>
-            </select>
-            <select id="cachimbas" name="cachimbas" required>
-                <option value="" disabled selected>Cantidad de cachimbas</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-            </select>
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="God Shisha Spain Logo">
         </div>
-        <button type="button" class="btn-reservar" onclick="validarFormulario()">Reservar</button>
-    </form>
-    <!-- Imagen VIP ZONE -->
-    <div>
-        <img src="images/vipzone.png" alt="VIP ZONE" class="vip-image">
-    </div>
-    <!-- Sección de contacto -->
-    <div class="contact-section">
-        <h2>Álvaro</h2>
-        <div class="contact-icons">
-            <a href="https://wa.me/34684252809">
-                <img src="images/whatsapp.png" alt="WhatsApp">
-            </a>
-            <a href="tel:+34684252809">
-                <img src="images/llamada.png" alt="Teléfono">
-            </a>
-        </div>
-        <div class="contact-info">
-            +34 684 25 28 09
-        </div>
-    </div>
-    <!-- Sección del pie de página con información de la empresa -->
-    <div class="footer-section">
-        <h3>La Fumada del Año</h3>
-        <p>C/ Catalunya, 2, 08781 Els Hostalets de Pierola, Barcelona</p>
-        <div class="information">Information</div>
-        <p>info@godshishaspain.com</p>
-        <p>+34 684 25 28 09</p>
-        <a href="https://www.instagram.com/lafumadaboxing/" target="_blank">
-            <img src="images/instagram.png" alt="Instagram" style="width: 30px; height: 30px;">
-        </a>
-    </div>
-    <script>
-        function validarFormulario() {
-            var name = document.getElementById('name').value;
-            var bottle = document.getElementById('bottle').value;
-            var cachimbas = document.getElementById('cachimbas').value;
-            if (name && bottle && cachimbas) {
-                var message = encodeURIComponent(`¡Buenas, quisiera hacer una reserva a nombre de ${name}, quiero una botella de ${bottle} y ${cachimbas} cachimba(s)!`);
-                var whatsappUrl = `https://wa.me/34684252809?text=${message}`;
-                window.location.href = whatsappUrl;
-            } else {
-                alert("Por favor, completa todos los campos antes de reservar.");
-            }
-        }
+        <nav>
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#catering">Catering</a></li>
+                <li><a href="#alquiler">Alquiler</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+                <li><a href="#" class="idioma">EN</a></li>
+            </ul>
+        </nav>
+    </header>
 
-        // Script para la cuenta regresiva...
-        var countdownDate = new Date("Aug 31, 2024 20:00:00").getTime();
-        var x = setInterval(function() {
-            var now = new Date().getTime();
-            var distance = countdownDate - now;
-            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-            document.getElementById("countdown").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
-            if (distance < 0) {
-                clearInterval(x);
-                document.getElementById("countdown").innerHTML = "El evento ha comenzado";
-            }
-        }, 1000);
-    </script>
+    <section id="inicio" class="hero">
+        <h1>Catering Premium de Cachimbas</h1>
+        <p>Transformamos tus eventos con un servicio exclusivo de shishas para bodas, discotecas, festivales y más.</p>
+        <a href="https://wa.me/34684252809" class="cta">Contactar por WhatsApp</a>
+    </section>
+
+    <section id="catering" class="servicios">
+        <h2>Servicios de Catering</h2>
+        <p>Ofrecemos una experiencia única con cachimbas premium para todo tipo de eventos. Nuestro equipo asegura calidad, diseño y satisfacción en cada sesión.</p>
+        <div class="galeria">
+            <img src="fotos/catering1.jpg" alt="Clientes disfrutando del catering de cachimbas">
+            <img src="fotos/catering2.jpg" alt="Ambiente en eventos con nuestras shishas">
+            <img src="fotos/catering3.jpg" alt="Catering de cachimbas en discoteca">
+        </div>
+    </section>
+
+    <section id="alquiler" class="alquiler">
+        <h2>Alquiler de Cachimbas</h2>
+        <p>Ofrecemos cachimbas de alta calidad en alquiler para eventos. Incluye carbón natural, boquillas higiénicas y sabores premium.</p>
+        <div class="galeria">
+            <img src="fotos/cachimba1.jpg" alt="Cachimba premium">
+            <img src="fotos/cachimba2.jpg" alt="Detalle de nuestras cachimbas">
+            <img src="fotos/cachimba3.jpg" alt="Cachimbas en mesa premium">
+        </div>
+    </section>
+
+    <section id="contacto" class="contacto">
+        <h2>Contacto</h2>
+        <p>Para más información o presupuestos, contáctanos por WhatsApp o correo electrónico.</p>
+        <a href="https://wa.me/34684252809" class="cta">Contactar por WhatsApp</a>
+        <p>O envíanos un email: <a href="mailto:godshishaspain.com">godshishaspain.com</a></p>
+        <form action="https://formspree.io/f/mayourform" method="POST">
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" name="nombre" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="mensaje">Mensaje</label>
+            <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
+
+            <button type="submit">Enviar</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 God Shisha Spain. Todos los derechos reservados.</p>
+    </footer>
 </body>
 </html>
