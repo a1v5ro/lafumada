@@ -54,51 +54,26 @@
             background-color: #c7931b;
         }
 
-        .sticky-banner {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            color: #fff;
-            padding: 10px 0;
-            text-align: center;
-            z-index: 1000;
-            display: none;
-        }
-
-        .sticky-banner.show {
-            display: block;
-        }
-
         .slider {
             position: relative;
             overflow: hidden;
             width: 100%;
             max-width: 800px;
             margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
-        #cateringSlider {
-            height: calc(800px * 4 / 5); /* Formato 4:5 */
-        }
-
-        #alquilerSlider {
-            height: calc(800px * 2 / 3); /* Formato 3:2 */
+        .slider-group {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
         }
 
         .slider img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: none;
-            position: absolute;
-            transition: opacity 0.5s;
-        }
-
-        .slider img.active {
-            display: block;
-            opacity: 1;
+            width: 250px;
+            height: auto;
+            margin: 0 10px;
         }
 
         .slider .controls {
@@ -122,13 +97,17 @@
         .slider .controls button:hover {
             background-color: rgba(0, 0, 0, 0.7);
         }
+
+        .slider img.active {
+            opacity: 1;
+        }
+
+        .slider img.inactive {
+            opacity: 0;
+        }
     </style>
 </head>
 <body>
-    <div class="sticky-banner" id="stickyBanner">
-        <p>Catering Premium de Cachimbas - <a href="#" class="cta">Contactar por WhatsApp</a></p>
-    </div>
-
     <header class="container">
         <div class="logo">
             <img src="fotos/logo1.png" alt="GodNights">
@@ -154,10 +133,12 @@
         <h2>Servicios de Catering</h2>
         <p>Ofrecemos una experiencia única con cachimbas premium para todo tipo de eventos. Nuestro equipo asegura calidad, diseño y satisfacción en cada sesión.</p>
         <div class="slider" id="cateringSlider">
-            <img src="fotos/catering1.jpg" alt="Clientes disfrutando del catering de cachimbas" class="active">
-            <img src="fotos/catering2.jpg" alt="Ambiente en eventos con nuestras shishas">
-            <img src="fotos/catering3.jpg" alt="Catering de cachimbas en discoteca">
-            <img src="fotos/catering4.jpg" alt="Otro evento con cachimbas premium">
+            <div class="slider-group">
+                <img src="fotos/catering1.jpg" alt="Clientes disfrutando del catering de cachimbas">
+                <img src="fotos/catering2.jpg" alt="Ambiente en eventos con nuestras shishas">
+                <img src="fotos/catering3.jpg" alt="Catering de cachimbas en discoteca">
+                <img src="fotos/catering4.jpg" alt="Otro evento con cachimbas premium">
+            </div>
             <div class="controls">
                 <button onclick="prevImage('cateringSlider')">&#9664;</button>
                 <button onclick="nextImage('cateringSlider')">&#9654;</button>
@@ -169,33 +150,16 @@
         <h2>Alquiler de Cachimbas</h2>
         <p>Ofrecemos cachimbas de alta calidad en alquiler para eventos. Incluye carbón natural, boquillas higiénicas y sabores premium.</p>
         <div class="slider" id="alquilerSlider">
-            <img src="fotos/cachimba1.jpg" alt="Cachimba premium" class="active">
-            <img src="fotos/cachimba2.jpg" alt="Detalle de nuestras cachimbas">
-            <img src="fotos/cachimba3.jpg" alt="Cachimbas en mesa premium">
+            <div class="slider-group">
+                <img src="fotos/cachimba1.jpg" alt="Cachimba premium">
+                <img src="fotos/cachimba2.jpg" alt="Detalle de nuestras cachimbas">
+                <img src="fotos/cachimba3.jpg" alt="Cachimbas en mesa premium">
+            </div>
             <div class="controls">
                 <button onclick="prevImage('alquilerSlider')">&#9664;</button>
                 <button onclick="nextImage('alquilerSlider')">&#9654;</button>
             </div>
         </div>
-    </section>
-
-    <section id="contacto" class="contacto container">
-        <h2>Contacto</h2>
-        <p>Para más información o presupuestos, contáctanos por WhatsApp o correo electrónico.</p>
-        <a href="https://wa.me/34684252809" class="cta">Contactar por WhatsApp</a>
-        <p>O envíanos un email: <a href="mailto:godshishaspain.com">godshishaspain.com</a></p>
-        <form action="https://formspree.io/f/mayourform" method="POST">
-            <label for="nombre">Nombre</label>
-            <input type="text" id="nombre" name="nombre" required>
-
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" required>
-
-            <label for="mensaje">Mensaje</label>
-            <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
-
-            <button type="submit">Enviar</button>
-        </form>
     </section>
 
     <footer class="container">
@@ -205,33 +169,39 @@
     <script>
         function nextImage(sliderId) {
             const slider = document.getElementById(sliderId);
-            const images = slider.getElementsByTagName('img');
-            let currentIndex = Array.from(images).findIndex(img => img.classList.contains('active'));
-
-            images[currentIndex].classList.remove('active');
-            currentIndex = (currentIndex + 1) % images.length;
-            images[currentIndex].classList.add('active');
+            const group = slider.querySelector('.slider-group');
+            const images = group.children;
+            const imageWidth = images[0].clientWidth + 20; // ancho + margen
+            group.style.transform = `translateX(-${imageWidth}px)`;
+            setTimeout(() => {
+                group.appendChild(images[0]);
+                group.style.transition = 'none';
+                group.style.transform = 'translateX(0)';
+                setTimeout(() => group.style.transition = 'transform 0.5s ease-in-out', 10);
+            }, 500);
         }
 
         function prevImage(sliderId) {
             const slider = document.getElementById(sliderId);
-            const images = slider.getElementsByTagName('img');
-            let currentIndex = Array.from(images).findIndex(img => img.classList.contains('active'));
-
-            images[currentIndex].classList.remove('active');
-            currentIndex = (currentIndex - 1 + images.length) % images.length;
-            images[currentIndex].classList.add('active');
+            const group = slider.querySelector('.slider-group');
+            const images = group.children;
+            const imageWidth = images[0].clientWidth + 20; // ancho + margen
+            group.style.transition = 'none';
+            group.style.transform = `translateX(-${imageWidth}px)`;
+            group.insertBefore(images[images.length - 1], images[0]);
+            setTimeout(() => group.style.transition = 'transform 0.5s ease-in-out', 10);
+            setTimeout(() => group.style.transform = 'translateX(0)', 20);
         }
 
-        // Sticky banner logic
-        window.addEventListener('scroll', () => {
-            const banner = document.getElementById('stickyBanner');
-            if (window.scrollY > 300) {
-                banner.classList.add('show');
-            } else {
-                banner.classList.remove('show');
-            }
+        function autoSlide(sliderId) {
+            setInterval(() => nextImage(sliderId), 5000);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            autoSlide('cateringSlider');
+            autoSlide('alquilerSlider');
         });
     </script>
 </body>
 </html>
+
