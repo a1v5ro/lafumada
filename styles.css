@@ -161,26 +161,26 @@ footer {
     width: 57.5px; /* 50px + 15% */
     height: 5.75px; /* 5px + 15% */
     background: linear-gradient(90deg, rgba(218, 165, 32, 1) 0%, rgba(255, 255, 255, 0) 100%);
-    top: -10%;
-    left: -10%;
-    transform: rotate(-45deg); /* Gira 45 grados hacia la derecha */
+    top: 110%; /* Comienza fuera de la pantalla (abajo) */
+    left: 110%; /* Comienza fuera de la pantalla (derecha) */
+    transform: rotate(-45deg); /* Gira hacia la izquierda */
     z-index: 10000;
     opacity: 0;
-    animation: estrellaAnimacion 3s ease-out forwards;
+    animation: estrellaAnimacion 2s ease-out forwards;
 }
 
 @keyframes estrellaAnimacion {
     0% {
-        top: -10%;
-        left: -10%;
+        top: 110%; /* Posición inicial: abajo a la derecha */
+        left: 110%;
         opacity: 1;
     }
     50% {
-        opacity: 1;
+        opacity: 1; /* La estrella sigue visible */
     }
     100% {
-        top: 110%;
-        left: 110%;
+        top: -10%; /* Posición final: arriba a la izquierda */
+        left: -10%;
         opacity: 0;
     }
 }
