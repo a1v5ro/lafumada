@@ -5,14 +5,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Catering profesional de cachimbas para eventos: discotecas, bodas, festivales y más. Contacta con nosotros para un servicio exclusivo y de calidad.">
     <meta name="keywords" content="catering cachimbas, eventos, discotecas, bodas, festivales, shishas premium">
-    <meta name="author" content="God Shisha Spain">
-    <title>God Shisha Spain - Catering de Cachimbas</title>
+    <meta name="author" content="GodNights">
+    <title>GodNights - Catering de Cachimbas</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        .slider {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .slider img {
+            width: 100%;
+            display: none;
+            position: absolute;
+            transition: opacity 1s;
+        }
+
+        .slider img.active {
+            display: block;
+            opacity: 1;
+        }
+
+        .slider img.inactive {
+            opacity: 0;
+        }
+
+        .slider-controls {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+
+        .slider-controls button {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        .slider-controls button:hover {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+    </style>
 </head>
 <body>
     <header>
         <div class="logo">
-            <img src="logo.png" alt="God Shisha Spain Logo">
+            <img src="logo.png" alt="GodNights Logo">
         </div>
         <nav>
             <ul>
@@ -34,8 +82,8 @@
     <section id="catering" class="servicios">
         <h2>Servicios de Catering</h2>
         <p>Ofrecemos una experiencia única con cachimbas premium para todo tipo de eventos. Nuestro equipo asegura calidad, diseño y satisfacción en cada sesión.</p>
-        <div class="galeria">
-            <img src="fotos/catering1.jpg" alt="Clientes disfrutando del catering de cachimbas">
+        <div class="slider" id="cateringSlider">
+            <img src="fotos/catering1.jpg" alt="Clientes disfrutando del catering de cachimbas" class="active">
             <img src="fotos/catering2.jpg" alt="Ambiente en eventos con nuestras shishas">
             <img src="fotos/catering3.jpg" alt="Catering de cachimbas en discoteca">
         </div>
@@ -44,8 +92,8 @@
     <section id="alquiler" class="alquiler">
         <h2>Alquiler de Cachimbas</h2>
         <p>Ofrecemos cachimbas de alta calidad en alquiler para eventos. Incluye carbón natural, boquillas higiénicas y sabores premium.</p>
-        <div class="galeria">
-            <img src="fotos/cachimba1.jpg" alt="Cachimba premium">
+        <div class="slider" id="alquilerSlider">
+            <img src="fotos/cachimba1.jpg" alt="Cachimba premium" class="active">
             <img src="fotos/cachimba2.jpg" alt="Detalle de nuestras cachimbas">
             <img src="fotos/cachimba3.jpg" alt="Cachimbas en mesa premium">
         </div>
@@ -71,7 +119,30 @@
     </section>
 
     <footer>
-        <p>&copy; 2025 God Shisha Spain. Todos los derechos reservados.</p>
+        <p>&copy; 2025 GodNights. Todos los derechos reservados.</p>
     </footer>
+
+    <script>
+        function initSlider(sliderId) {
+            const slider = document.getElementById(sliderId);
+            const images = slider.getElementsByTagName('img');
+            let currentIndex = 0;
+
+            function showNextImage() {
+                images[currentIndex].classList.remove('active');
+                images[currentIndex].classList.add('inactive');
+                currentIndex = (currentIndex + 1) % images.length;
+                images[currentIndex].classList.add('active');
+                images[currentIndex].classList.remove('inactive');
+            }
+
+            setInterval(showNextImage, 3000); // Cambia de imagen cada 3 segundos
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            initSlider('cateringSlider');
+            initSlider('alquilerSlider');
+        });
+    </script>
 </body>
 </html>
