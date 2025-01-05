@@ -63,18 +63,17 @@
             position: relative;
             overflow: hidden;
             width: 100%;
-            max-width: 800px; /* Tamaño máximo del slider */
+            max-width: 800px;
             margin: 0 auto;
-            height: 400px; /* Altura fija del slider */
+            height: 400px;
         }
 
         .slider img {
             width: 100%;
             height: auto;
-            max-height: 100%; /* Ajustar altura máxima */
             display: none;
             position: absolute;
-            transition: opacity 1s;
+            transition: opacity 0.5s;
         }
 
         .slider img.active {
@@ -82,8 +81,26 @@
             opacity: 1;
         }
 
-        .slider img.inactive {
-            opacity: 0;
+        .slider .controls {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+
+        .slider .controls button {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        .slider .controls button:hover {
+            background-color: rgba(0, 0, 0, 0.7);
         }
     </style>
 </head>
@@ -121,6 +138,10 @@
             <img src="fotos/catering2.jpg" alt="Ambiente en eventos con nuestras shishas">
             <img src="fotos/catering3.jpg" alt="Catering de cachimbas en discoteca">
             <img src="fotos/catering4.jpg" alt="Otro evento con cachimbas premium">
+            <div class="controls">
+                <button onclick="prevImage('cateringSlider')">&#9664;</button>
+                <button onclick="nextImage('cateringSlider')">&#9654;</button>
+            </div>
         </div>
     </section>
 
@@ -131,6 +152,10 @@
             <img src="fotos/cachimba1.jpg" alt="Cachimba premium" class="active">
             <img src="fotos/cachimba2.jpg" alt="Detalle de nuestras cachimbas">
             <img src="fotos/cachimba3.jpg" alt="Cachimbas en mesa premium">
+            <div class="controls">
+                <button onclick="prevImage('alquilerSlider')">&#9664;</button>
+                <button onclick="nextImage('alquilerSlider')">&#9654;</button>
+            </div>
         </div>
     </section>
 
@@ -158,26 +183,25 @@
     </footer>
 
     <script>
-        function initSlider(sliderId) {
+        function nextImage(sliderId) {
             const slider = document.getElementById(sliderId);
             const images = slider.getElementsByTagName('img');
-            let currentIndex = 0;
+            let currentIndex = Array.from(images).findIndex(img => img.classList.contains('active'));
 
-            function showNextImage() {
-                images[currentIndex].classList.remove('active');
-                images[currentIndex].classList.add('inactive');
-                currentIndex = (currentIndex + 1) % images.length;
-                images[currentIndex].classList.add('active');
-                images[currentIndex].classList.remove('inactive');
-            }
-
-            setInterval(showNextImage, 3000); // Cambia de imagen cada 3 segundos
+            images[currentIndex].classList.remove('active');
+            currentIndex = (currentIndex + 1) % images.length;
+            images[currentIndex].classList.add('active');
         }
 
-        document.addEventListener('DOMContentLoaded', () => {
-            initSlider('cateringSlider');
-            initSlider('alquilerSlider');
-        });
+        function prevImage(sliderId) {
+            const slider = document.getElementById(sliderId);
+            const images = slider.getElementsByTagName('img');
+            let currentIndex = Array.from(images).findIndex(img => img.classList.contains('active'));
+
+            images[currentIndex].classList.remove('active');
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            images[currentIndex].classList.add('active');
+        }
 
         // Sticky banner logic
         window.addEventListener('scroll', () => {
