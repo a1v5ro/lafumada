@@ -190,34 +190,6 @@
             }
         }
     </style>
-.estrella-fugaz {
-    position: fixed;
-    width: 50px;
-    height: 5px;
-    background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
-    top: -10%;
-    left: -10%;
-    transform: rotate(-45deg);
-    z-index: 10000;
-    opacity: 0;
-    animation: estrellaAnimacion 2s ease-out forwards;
-}
-
-@keyframes estrellaAnimacion {
-    0% {
-        top: -10%;
-        left: -10%;
-        opacity: 1;
-    }
-    50% {
-        opacity: 1;
-    }
-    100% {
-        top: 110%;
-        left: 110%;
-        opacity: 0;
-    }
-}
 
 </head>
 <body>
