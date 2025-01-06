@@ -14,7 +14,6 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 2px solid #daa520; /* Línea dorada */
     position: fixed;
     top: 0;
     width: 100%;
@@ -36,6 +35,7 @@ header .logo img {
     max-width: 100%;
 }
 
+/* Menú en formato ordenador */
 header nav ul {
     list-style: none;
     display: flex;
@@ -58,56 +58,58 @@ header nav ul li a:hover {
     color: #daa520; /* Dorado */
 }
 
+/* Menú en formato móvil */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.menu-toggle span {
+    background: #fff;
+    height: 3px;
+    width: 25px;
+    margin: 3px 0;
+    border-radius: 2px;
+}
+
+nav.mobile-menu {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    background: #333;
+    height: 100%;
+    width: 200px;
+    padding-top: 50px;
+    box-shadow: -2px 0 4px rgba(0, 0, 0, 0.2);
+    flex-direction: column;
+}
+
+nav.mobile-menu ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav.mobile-menu ul li {
+    margin: 15px 0;
+}
+
+nav.mobile-menu ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+}
+
 /* Hero Section */
 .hero {
     text-align: center;
-    padding: 100px 20px;
-    background: url('fotos/cateringcachimba1.jpg') no-repeat center center/cover; /* Cambiar la imagen de fondo */
-    color: #fff; /* Texto blanco */
+    padding: 100px 0;
+    background: url('fotos/cateringcachimba1.jpg') no-repeat center center/cover;
+    color: #fff;
     margin-top: 70px; /* Evita que quede debajo del header */
-}
-
-.hero h1 {
-    font-size: 2.5em;
-    margin-bottom: 20px;
-}
-
-.hero p {
-    font-size: 1.2em;
-    margin-bottom: 30px;
-}
-
-.hero .cta {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #daa520; /* Botón dorado */
-    color: #000;
-    font-weight: bold;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-}
-
-.hero .cta:hover {
-    background-color: #c7931b; /* Más oscuro */
-}
-
-/* Secciones */
-section {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 50px 20px;
-    text-align: center;
-}
-
-section h2 {
-    color: #daa520;
-    margin-bottom: 20px;
-}
-
-section p {
-    margin-bottom: 30px;
-    color: #555; /* Texto gris más suave */
+    width: 100vw; /* Ocupa todo el ancho de la ventana */
+    height: calc(100vh - 70px); /* Ocupa todo el alto restante */
 }
 
 /* Sliders */
@@ -115,20 +117,15 @@ section p {
     position: relative;
     overflow: hidden;
     width: 100%;
-    max-width: 800px; /* Limita el ancho del slider */
+    max-width: 800px;
     margin: 30px auto;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.slider-group {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-}
-
 .slider img {
-    width: 250px; /* Tamaño uniforme */
+    width: 250px;
     height: auto;
     margin: 0 10px;
     display: block;
@@ -159,84 +156,26 @@ section p {
     background-color: rgba(0, 0, 0, 0.7);
 }
 
-/* Galería */
-.galeria {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    flex-wrap: wrap;
-}
-
-.galeria img {
-    width: 250px; /* Tamaño uniforme */
-    height: auto;
-    border: 2px solid #daa520;
-    border-radius: 10px;
-    transition: transform 0.3s;
-}
-
-.galeria img:hover {
-    transform: scale(1.05);
-}
-
-/* Formulario de contacto */
-form {
-    max-width: 600px;
-    margin: 0 auto;
-    text-align: left;
-}
-
-form label {
-    display: block;
-    margin-bottom: 5px;
-}
-
-form input,
-form textarea {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-form button {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    background-color: #daa520;
-    color: #000;
-    font-weight: bold;
-    border: none;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-}
-
-form button:hover {
-    background-color: #c7931b;
-}
-
 /* Contact Buttons */
 .contact-buttons img {
-    width: 40px; /* Tamaño adecuado */
-    height: auto; /* Mantiene la proporción */
-    margin: 0 10px; /* Espaciado entre los iconos */
+    width: 40px;
+    height: auto;
+    margin: 0 10px;
     cursor: pointer;
     transition: transform 0.3s;
 }
 
 .contact-buttons img:hover {
-    transform: scale(1.1); /* Efecto de agrandamiento al pasar el cursor */
+    transform: scale(1.1);
 }
 
 /* Footer */
 footer {
-    background-color: #333; /* Fondo oscuro para contraste */
+    background-color: #333;
     color: #fff;
     text-align: center;
     padding: 20px 0;
     border-top: 2px solid #daa520;
-    margin-top: 30px;
 }
 
 .footer-logo img {
@@ -272,12 +211,12 @@ footer {
 /* Estrella Fugaz */
 .estrella-fugaz {
     position: fixed;
-    width: 57.5px;
-    height: 5.75px;
+    width: 57.5px; /* 50px + 15% */
+    height: 5.75px; /* 5px + 15% */
     background: linear-gradient(90deg, rgba(218, 165, 32, 1) 0%, rgba(255, 255, 255, 0) 100%);
-    top: 110%;
-    left: 110%;
-    transform: rotate(42.5deg);
+    top: 110%; /* Comienza fuera de la pantalla (abajo) */
+    left: 110%; /* Comienza fuera de la pantalla (derecha) */
+    transform: rotate(42.5deg); /* Gira hacia la izquierda */
     z-index: 10000;
     opacity: 0;
     animation: estrellaAnimacion 2s ease-out forwards;
@@ -296,5 +235,20 @@ footer {
         top: -10%;
         left: -10%;
         opacity: 0;
+    }
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    header nav {
+        display: none; /* Oculta el menú normal */
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+
+    nav.mobile-menu {
+        display: flex;
     }
 }
