@@ -216,6 +216,19 @@ form button:hover {
     background-color: #c7931b;
 }
 
+/* Contact Buttons */
+.contact-buttons img {
+    width: 40px; /* Tamaño adecuado */
+    height: auto; /* Mantiene la proporción */
+    margin: 0 10px; /* Espaciado entre los iconos */
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.contact-buttons img:hover {
+    transform: scale(1.1); /* Efecto de agrandamiento al pasar el cursor */
+}
+
 /* Footer */
 footer {
     background-color: #333; /* Fondo oscuro para contraste */
