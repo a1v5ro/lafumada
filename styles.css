@@ -7,6 +7,7 @@ body {
     color: #fff; /* Texto blanco */
 }
 
+/* Header */
 header {
     background-color: #1a1a1a; /* Negro más suave */
     padding: 10px 20px;
@@ -14,10 +15,24 @@ header {
     justify-content: space-between;
     align-items: center;
     border-bottom: 2px solid #daa520; /* Línea dorada */
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 header .logo img {
     height: 50px;
+    max-width: 100%;
 }
 
 header nav ul {
@@ -48,6 +63,7 @@ header nav ul li a:hover {
     padding: 100px 20px;
     background: url('fotos/hero.jpg') no-repeat center center/cover; /* Cambiar la imagen de fondo */
     color: #fff;
+    margin-top: 70px; /* Evita que quede debajo del header */
 }
 
 .hero h1 {
@@ -77,6 +93,8 @@ header nav ul li a:hover {
 
 /* Secciones */
 section {
+    max-width: 1200px;
+    margin: 0 auto;
     padding: 50px 20px;
     text-align: center;
 }
@@ -90,6 +108,55 @@ section p {
     margin-bottom: 30px;
 }
 
+/* Sliders */
+.slider {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    max-width: 800px; /* Limita el ancho del slider */
+    margin: 30px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slider-group {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slider img {
+    width: 250px; /* Ajusta el tamaño de las imágenes */
+    height: auto;
+    margin: 0 10px;
+    display: block;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.slider .controls {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+}
+
+.slider .controls button {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 50%;
+}
+
+.slider .controls button:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
 /* Galería */
 .galeria {
     display: flex;
@@ -99,7 +166,7 @@ section p {
 }
 
 .galeria img {
-    width: 300px;
+    width: 250px; /* Tamaño uniforme */
     height: auto;
     border: 2px solid #daa520;
     border-radius: 10px;
@@ -152,18 +219,50 @@ footer {
     background-color: #1a1a1a;
     color: #fff;
     text-align: center;
-    padding: 10px 0;
+    padding: 20px 0;
     border-top: 2px solid #daa520;
+    margin-top: 30px;
 }
 
+.footer-logo img {
+    height: 50px;
+    max-width: 100%;
+    margin-top: 10px;
+}
+
+/* Floating Button */
+.floating-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background: url('fotos/whatsapp2.png') no-repeat center center;
+    background-size: cover;
+    border-radius: 50%;
+    cursor: pointer;
+    animation: pump 6s infinite;
+    z-index: 1000;
+}
+
+@keyframes pump {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.4);
+    }
+}
+
+/* Estrella Fugaz */
 .estrella-fugaz {
     position: fixed;
-    width: 57.5px; /* 50px + 15% */
-    height: 5.75px; /* 5px + 15% */
+    width: 57.5px;
+    height: 5.75px;
     background: linear-gradient(90deg, rgba(218, 165, 32, 1) 0%, rgba(255, 255, 255, 0) 100%);
-    top: 110%; /* Comienza fuera de la pantalla (abajo) */
-    left: 110%; /* Comienza fuera de la pantalla (derecha) */
-    transform: rotate(42.3deg); /* Gira hacia la izquierda */
+    top: 110%;
+    left: 110%;
+    transform: rotate(-45deg); /* Ajustado */
     z-index: 10000;
     opacity: 0;
     animation: estrellaAnimacion 2s ease-out forwards;
@@ -171,15 +270,15 @@ footer {
 
 @keyframes estrellaAnimacion {
     0% {
-        top: 110%; /* Posición inicial: abajo a la derecha */
+        top: 110%;
         left: 110%;
         opacity: 1;
     }
     50% {
-        opacity: 1; /* La estrella sigue visible */
+        opacity: 1;
     }
     100% {
-        top: -10%; /* Posición final: arriba a la izquierda */
+        top: -10%;
         left: -10%;
         opacity: 0;
     }
