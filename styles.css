@@ -24,16 +24,26 @@ header {
 }
 
 .header-content {
-    max-width: 1200px;
-    margin: 0 auto;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
+header .logo {
+    flex: 0 0 auto;
+}
+
 header .logo img {
     height: 50px;
     max-width: 100%;
+}
+
+header nav {
+    flex: 1 1 auto;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
 }
 
 header nav ul {
@@ -56,6 +66,59 @@ header nav ul li a {
 
 header nav ul li a:hover {
     color: #daa520; /* Dorado */
+}
+
+/* Menú desplegable para móvil */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.menu-toggle div {
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    margin: 3px 0;
+}
+
+header nav.mobile {
+    display: none;
+    position: absolute;
+    top: 70px;
+    right: 0;
+    background-color: #333;
+    border: 1px solid #daa520;
+    border-radius: 5px;
+    flex-direction: column;
+    width: 200px;
+    text-align: right;
+}
+
+header nav.mobile ul {
+    flex-direction: column;
+    padding: 10px;
+}
+
+header nav.mobile ul li {
+    margin: 10px 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    header nav.desktop {
+        display: none;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+
+    header nav.mobile {
+        display: flex;
+    }
 }
 
 /* Hero Section */
@@ -325,5 +388,8 @@ footer {
     .hero {
         height: 100vh; /* Ocupa toda la altura de la ventana */
         background-position: center; /* Ajusta la posición */
-        background-size: cover
+        background-size: cover;
+        margin-top: 0;
+    }
+}
 
