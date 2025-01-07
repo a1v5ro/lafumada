@@ -10,7 +10,7 @@ body {
 /* Header */
 header {
     background-color: #333; /* Fondo oscuro para el header */
-    padding: 10px 20px;
+    padding: 10px 40px; /* Más margen en los laterales */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -54,7 +54,7 @@ header nav ul {
 }
 
 header nav ul li {
-    margin: 0 15px;
+    margin: 0 20px; /* Más espacio entre las opciones */
 }
 
 header nav ul li a {
@@ -134,11 +134,13 @@ header nav.mobile ul li {
 .hero h1 {
     font-size: 2.5em;
     margin-bottom: 20px;
+    color: #fff; /* Texto blanco brillante */
 }
 
 .hero p {
     font-size: 1.2em;
     margin-bottom: 30px;
+    color: #ddd; /* Blanco más oscuro */
 }
 
 .hero .cta {
@@ -230,17 +232,33 @@ section p {
 }
 
 .slider .controls button {
-    background-color: rgba(0, 0, 0, 0.5);
-    color: #fff;
+    background-color: rgba(0, 0, 0, 0.6); /* Fondo semitransparente */
+    color: #fff; /* Color blanco */
     border: none;
-    padding: 10px;
+    padding: 10px 15px;
     cursor: pointer;
-    font-size: 18px;
-    border-radius: 50%;
+    font-size: 24px; /* Tamaño de la flecha */
+    border-radius: 50%; /* Hace los botones redondos */
+    transition: background-color 0.3s, transform 0.3s;
 }
 
 .slider .controls button:hover {
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.8); /* Fondo más oscuro al pasar el cursor */
+    transform: scale(1.1); /* Agranda un poco */
+}
+
+.slider .controls .prev {
+    position: absolute;
+    left: 10px; /* Ajusta la posición a la izquierda */
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.slider .controls .next {
+    position: absolute;
+    right: 10px; /* Ajusta la posición a la derecha */
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 /* Galería */
