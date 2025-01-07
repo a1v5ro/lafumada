@@ -298,3 +298,11 @@ footer {
         opacity: 0;
     }
 }
+
+/* Ajustes específicos para pantallas grandes */
+@media (min-width: 768px) {
+    .hero {
+        height: 100vh; /* Ocupa toda la altura de la ventana */
+        margin-top: 0; /* Elimina el margen superior */
+    }
+}
