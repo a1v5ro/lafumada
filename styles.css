@@ -124,10 +124,15 @@ header nav.mobile ul li {
 /* Hero Section */
 .hero {
     text-align: center;
-    padding: 100px 20px;
+    height: 50vh; /* Ocupa solo la mitad del viewport */
     background: url('fotos/cateringcachimba1.jpg') no-repeat center center; /* Cambiar la imagen de fondo */
     background-size: cover; /* Asegura que la imagen cubra todo el espacio */
+    background-position: center bottom; /* Muestra la mitad inferior */
     color: #fff; /* Texto blanco */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* Contenido hacia la parte inferior */
+    align-items: center;
     margin-top: 70px; /* Evita que quede debajo del header */
 }
 
@@ -404,10 +409,7 @@ footer {
 /* Ajustes específicos para pantallas grandes */
 @media (min-width: 768px) {
     .hero {
-        height: 100vh; /* Ocupa toda la altura de la ventana */
-        background-position: center; /* Ajusta la posición */
-        background-size: cover;
-        margin-top: 0;
+        height: 50vh; /* Ocupa solo la mitad del viewport */
+        background-position: center bottom; /* Ajusta para mostrar mitad inferior */
     }
 }
-
