@@ -19,21 +19,35 @@
                     <img src="fotos/logo1.png" alt="GodNights">
                 </a>
             </div>
-            <nav>
+            <div class="menu-toggle" onclick="toggleMenu()">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <nav class="desktop">
                 <ul>
                     <li><a href="#inicio">Inicio</a></li>
                     <li><a href="#catering">Catering</a></li>
                     <li><a href="#alquiler">Alquiler</a></li>
+                    <li><a href="#tienda">Tienda</a></li>
                     <li><a href="#contacto">Contacto</a></li>
                     <li><a href="#" class="idioma">EN</a></li>
-                    <li><a href="#tienda">Tienda</a></li> <!-- Nuevo -->
+                </ul>
+            </nav>
+            <nav class="mobile">
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#catering">Catering</a></li>
+                    <li><a href="#alquiler">Alquiler</a></li>
+                    <li><a href="#tienda">Tienda</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
     <section id="inicio" class="hero">
-        <h1>Catering Premium de Cachimbas</h1>
+        <h1>GodNights</h1>
         <p>Transformamos tus eventos con un servicio exclusivo de shishas para bodas, discotecas, festivales y más.</p>
         <a href="https://wa.me/34684252809" class="cta">Contactar por WhatsApp</a>
     </section>
@@ -74,7 +88,7 @@
     <section id="tienda" class="tienda container">
         <h2>Tienda</h2>
         <p>Próximamente...</p>
-    </section> <!-- Nueva sección -->
+    </section>
 
     <section id="contacto" class="contacto container">
         <h2>Contacto</h2>
@@ -94,7 +108,14 @@
 
     <a href="https://wa.me/34684252809" class="floating-button"></a>
 
+    <script>
+        function toggleMenu() {
+            const menu = document.querySelector('header nav.mobile');
+            menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+        }
+    </script>
     <script src="scripts.js"></script>
 </body>
 </html>
+
 

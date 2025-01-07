@@ -33,6 +33,15 @@ function autoSlide(sliderId) {
 document.addEventListener('DOMContentLoaded', () => {
     autoSlide('cateringSlider');
     autoSlide('alquilerSlider');
+
+    // Inicializa el botón de menú para dispositivos móviles
+    const menuToggle = document.querySelector('.menu-toggle');
+    const mobileMenu = document.querySelector('header nav.mobile');
+
+    menuToggle.addEventListener('click', () => {
+        const isMenuVisible = mobileMenu.style.display === 'flex';
+        mobileMenu.style.display = isMenuVisible ? 'none' : 'flex';
+    });
 });
 
 // Cambiar opacidad del header al hacer scroll
@@ -41,3 +50,4 @@ window.addEventListener('scroll', function () {
     const opacity = Math.max(0.5, 1 - window.scrollY / 300); // Calcula opacidad
     header.style.backgroundColor = `rgba(51, 51, 51, ${opacity})`; // Ajusta el color del fondo
 });
+
