@@ -1,4 +1,4 @@
-/* Estilos generales */
+/* Estilos generales */ 
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -62,7 +62,8 @@ header nav ul li a:hover {
 .hero {
     text-align: center;
     padding: 100px 20px;
-    background: url('fotos/cateringcachimba1.jpg') no-repeat center center/cover; /* Cambiar la imagen de fondo */
+    background: url('fotos/cateringcachimba1.jpg') no-repeat center center; /* Cambiar la imagen de fondo */
+    background-size: cover; /* Asegura que la imagen cubra todo el espacio */
     color: #fff; /* Texto blanco */
     margin-top: 70px; /* Evita que quede debajo del header */
 }
@@ -303,6 +304,8 @@ footer {
 @media (min-width: 768px) {
     .hero {
         height: 100vh; /* Ocupa toda la altura de la ventana */
-        margin-top: 0; /* Elimina el margen superior */
+        background-position: center; /* Ajusta la posición */
+        background-size: cover; /* Cubre completamente el área visible */
+        margin-top: 0;
     }
 }
