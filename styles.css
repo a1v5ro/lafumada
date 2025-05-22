@@ -3,18 +3,18 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #fff; /* Fondo blanco */
-    color: #333; /* Textos en gris oscuro */
+    background-color: #fff;
+    color: #333;
 }
 
 /* Header */
 header {
-    background-color: #333; /* Fondo oscuro para el header */
-    padding: 10px 40px; /* Más margen en los laterales */
+    background-color: #333;
+    padding: 10px 40px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 2px solid #daa520; /* Línea dorada */
+    border-bottom: 2px solid #daa520;
     position: fixed;
     top: 0;
     width: 100%;
@@ -54,18 +54,18 @@ header nav ul {
 }
 
 header nav ul li {
-    margin: 0 20px; /* Más espacio entre las opciones */
+    margin: 0 20px;
 }
 
 header nav ul li a {
-    color: #fff; /* Texto blanco en el header */
+    color: #fff;
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s;
 }
 
 header nav ul li a:hover {
-    color: #daa520; /* Dorado */
+    color: #daa520;
 }
 
 /* Menú desplegable para móvil */
@@ -116,9 +116,8 @@ header nav.mobile ul li {
         display: flex;
     }
 
-}
-
-/* Hero Section */
+    
+}/* Hero Section */
 .hero {
     text-align: center;
     height: 50vh; /* Ocupa solo la mitad del viewport */
