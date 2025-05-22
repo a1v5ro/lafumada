@@ -19,7 +19,7 @@
                     <img src="fotos/logo1.png" alt="GodNights">
                 </a>
             </div>
-            <div class="menu-toggle" onclick="toggleMenu()">
+            <div class="menu-toggle">
                 <div></div>
                 <div></div>
                 <div></div>
@@ -30,6 +30,7 @@
                     <li><a href="#catering">Catering</a></li>
                     <li><a href="#alquiler">Alquiler</a></li>
                     <li><a href="#tienda">Tienda</a></li>
+                    <li><a href="#carta">Carta</a></li>
                     <li><a href="#contacto">Contacto</a></li>
                     <li><a href="#" class="idioma">EN</a></li>
                 </ul>
@@ -40,6 +41,7 @@
                     <li><a href="#catering">Catering</a></li>
                     <li><a href="#alquiler">Alquiler</a></li>
                     <li><a href="#tienda">Tienda</a></li>
+                    <li><a href="#carta">Carta</a></li>
                     <li><a href="#contacto">Contacto</a></li>
                 </ul>
             </nav>
@@ -63,10 +65,9 @@
                 <img src="fotos/catering4.jpg" alt="Otro evento con cachimbas premium">
             </div>
             <div class="controls">
-    <button class="prev" onclick="prevImage('cateringSlider')">&#10094;</button>
-    <button class="next" onclick="nextImage('cateringSlider')">&#10095;</button>
-</div>
-
+                <button class="prev" onclick="prevImage('cateringSlider')">&#10094;</button>
+                <button class="next" onclick="nextImage('cateringSlider')">&#10095;</button>
+            </div>
         </div>
     </section>
 
@@ -91,6 +92,11 @@
         <p>Próximamente...</p>
     </section>
 
+    <section id="carta" class="carta container">
+        <h2>Nuestra Carta</h2>
+        <p>Descubre nuestra selección exclusiva de sabores premium para shisha. Ofrecemos mezclas tradicionales y exóticas para todos los gustos. Pronto podrás ver el catálogo completo aquí.</p>
+    </section>
+
     <section id="contacto" class="contacto container">
         <h2>Contacto</h2>
         <p>Para más información o presupuestos, contáctanos a través de los siguientes botones:</p>
@@ -109,14 +115,7 @@
 
     <a href="https://wa.me/34684252809" class="floating-button"></a>
 
-    <script>
-        function toggleMenu() {
-            const menu = document.querySelector('header nav.mobile');
-            menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
-        }
-    </script>
     <script src="scripts.js"></script>
 </body>
 </html>
-
 
