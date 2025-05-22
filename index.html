@@ -1,116 +1,106 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Catering profesional de cachimbas para eventos: discotecas, bodas, festivales y más. Contacta con nosotros para un servicio exclusivo y de calidad.">
-    <meta name="keywords" content="catering cachimbas, eventos, discotecas, bodas, festivales, shishas premium">
-    <meta name="author" content="GodNights">
-    <title>GodNights - Catering de Cachimbas</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GodNights - Catering de Cachimbas</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+    }
+    .menu-toggle div {
+      width: 25px;
+      height: 3px;
+      background-color: white;
+      margin: 4px 0;
+    }
+    nav.mobile {
+      display: none;
+      flex-direction: column;
+      background-color: #222;
+      position: absolute;
+      top: 70px;
+      right: 20px;
+      width: 200px;
+      border-radius: 8px;
+      border: 1px solid #daa520;
+      z-index: 999;
+    }
+    nav.mobile a {
+      color: white;
+      padding: 12px;
+      text-decoration: none;
+      border-bottom: 1px solid #444;
+    }
+    nav.mobile a:hover {
+      background-color: #444;
+    }
+    @media (max-width: 768px) {
+      nav.desktop {
+        display: none;
+      }
+      .menu-toggle {
+        display: flex;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="estrella-fugaz"></div>
+  <header>
+    <div class="header-content">
+      <div class="logo">
+        <a href="#inicio"><img src="fotos/logo1.png" alt="GodNights"></a>
+      </div>
+      <div class="menu-toggle" id="menuToggle">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <nav class="desktop">
+        <ul>
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#catering">Catering</a></li>
+          <li><a href="#alquiler">Alquiler</a></li>
+          <li><a href="#tienda">Tienda</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+          <li><a href="#" class="idioma">EN</a></li>
+        </ul>
+      </nav>
+      <nav class="mobile" id="mobileMenu">
+        <a href="#inicio">Inicio</a>
+        <a href="#catering">Catering</a>
+        <a href="#alquiler">Alquiler</a>
+        <a href="#tienda">Tienda</a>
+        <a href="carta.html">Carta</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </div>
+  </header>
 
-    <header>
-        <div class="header-content">
-            <div class="logo">
-                <a href="#inicio">
-                    <img src="fotos/logo1.png" alt="GodNights">
-                </a>
-            </div>
-            <div class="menu-toggle">
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-            <nav class="desktop">
-                <ul>
-                    <li><a href="#inicio">Inicio</a></li>
-                    <li><a href="#catering">Catering</a></li>
-                    <li><a href="#alquiler">Alquiler</a></li>
-                    <li><a href="#tienda">Tienda</a></li>
-                    <li><a href="carta.html">Carta</a></li>
-                    <li><a href="#contacto">Contacto</a></li>
-                    <li><a href="#" class="idioma">EN</a></li>
-                </ul>
-            </nav>
-            <nav class="mobile">
-                <ul>
-                    <li><a href="#inicio">Inicio</a></li>
-                    <li><a href="#catering">Catering</a></li>
-                    <li><a href="#alquiler">Alquiler</a></li>
-                    <li><a href="#tienda">Tienda</a></li>
-                    <li><a href="carta.html">Carta</a></li>
-                    <li><a href="#contacto">Contacto</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+  <!-- Resto de tu contenido original -->
+  <section id="inicio" class="hero">
+    <h1>GodNights</h1>
+    <p>Transformamos tus eventos con un servicio exclusivo de shishas para bodas, discotecas, festivales y más.</p>
+    <a href="https://wa.me/34684252809" class="cta">Contactar por WhatsApp</a>
+  </section>
 
-    <section id="inicio" class="hero">
-        <h1>GodNights</h1>
-        <p>Transformamos tus eventos con un servicio exclusivo de shishas para bodas, discotecas, festivales y más.</p>
-        <a href="https://wa.me/34684252809" class="cta">Contactar por WhatsApp</a>
-    </section>
+  <!-- Secciones Catering, Alquiler, Tienda, Contacto... -->
 
-    <section id="catering" class="servicios container">
-        <h2>Servicios de Catering</h2>
-        <p>Ofrecemos una experiencia exclusiva con cachimbas premium diseñada para realzar cualquier tipo de evento. Nuestro equipo se distingue por su compromiso, profesionalismo y enfoque en la excelencia, garantizando un servicio que supera las expectativas en cada ocasión.</p>
-        <div class="slider" id="cateringSlider">
-            <div class="slider-group">
-                <img src="fotos/catering1.jpg" alt="Clientes disfrutando del catering de cachimbas">
-                <img src="fotos/catering2.jpg" alt="Ambiente en eventos con nuestras shishas">
-                <img src="fotos/catering3.jpg" alt="Catering de cachimbas en discoteca">
-                <img src="fotos/catering4.jpg" alt="Otro evento con cachimbas premium">
-            </div>
-            <div class="controls">
-                <button class="prev" onclick="prevImage('cateringSlider')">&#10094;</button>
-                <button class="next" onclick="nextImage('cateringSlider')">&#10095;</button>
-            </div>
-        </div>
-    </section>
-
-    <section id="alquiler" class="alquiler container">
-        <h2>Alquiler de Cachimbas</h2>
-        <p>Proporcionamos cachimbas de alta calidad en alquiler para todo tipo de eventos y ocasiones. Nos ocupamos de entregarte el producto en perfectas condiciones, para que tú solo te concentres en disfrutar y organizar la experiencia a tu manera.</p>
-        <div class="slider" id="alquilerSlider">
-            <div class="slider-group">
-                <img src="fotos/cachimba1.jpg" alt="Cachimba premium">
-                <img src="fotos/cachimba2.jpg" alt="Detalle de nuestras cachimbas">
-                <img src="fotos/cachimba3.jpg" alt="Cachimbas en mesa premium">
-            </div>
-            <div class="controls">
-                <button onclick="prevImage('alquilerSlider')">&#9664;</button>
-                <button onclick="nextImage('alquilerSlider')">&#9654;</button>
-            </div>
-        </div>
-    </section>
-
-    <section id="tienda" class="tienda container">
-        <h2>Tienda</h2>
-        <p>Próximamente...</p>
-    </section>
-
-    <section id="contacto" class="contacto container">
-        <h2>Contacto</h2>
-        <p>Para más información o presupuestos, contáctanos a través de los siguientes botones:</p>
-        <div class="contact-buttons">
-            <a href="https://wa.me/34684252809"><img src="fotos/whatsapp1.png" alt="WhatsApp"></a>
-            <a href="mailto:godshishaspain.com"><img src="fotos/mail1.png" alt="Email"></a>
-        </div>
-    </section>
-
-    <footer>
-        <p>&copy; 2022 GodNights. Todos los derechos reservados.</p>
-        <div class="footer-logo">
-            <img src="fotos/logo1.png" alt="GodNights">
-        </div>
-    </footer>
-
-    <a href="https://wa.me/34684252809" class="floating-button"></a>
-
-    <script src="scripts.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const toggle = document.getElementById('menuToggle');
+      const menu = document.getElementById('mobileMenu');
+      toggle.addEventListener('click', () => {
+        const isShown = menu.style.display === 'flex';
+        menu.style.display = isShown ? 'none' : 'flex';
+      });
+    });
+  </script>
 </body>
 </html>
 
