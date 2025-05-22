@@ -8,6 +8,58 @@
     <meta name="author" content="GodNights">
     <title>GodNights - Catering de Cachimbas</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+      .menu-toggle {
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+      }
+      .menu-toggle div {
+        width: 25px;
+        height: 3px;
+        background-color: white;
+        margin: 4px 0;
+      }
+      @media (max-width: 768px) {
+        nav.desktop {
+          display: none;
+        }
+        .menu-toggle {
+          display: flex;
+        }
+        nav.mobile {
+          display: none;
+          flex-direction: column;
+          background-color: #222;
+          position: absolute;
+          top: 70px;
+          right: 20px;
+          width: 200px;
+          border-radius: 8px;
+          border: 1px solid #daa520;
+          z-index: 999;
+        }
+        nav.mobile ul {
+          margin: 0;
+          padding: 0;
+          list-style: none;
+        }
+        nav.mobile li {
+          border-bottom: 1px solid #444;
+        }
+        nav.mobile a {
+          display: block;
+          color: white;
+          padding: 12px;
+          text-decoration: none;
+        }
+        nav.mobile a:hover {
+          background-color: #444;
+        }
+      }
+    </style>
 </head>
 <body>
     <div class="estrella-fugaz"></div>
@@ -19,7 +71,7 @@
                     <img src="fotos/logo1.png" alt="GodNights">
                 </a>
             </div>
-            <div class="menu-toggle">
+            <div class="menu-toggle" id="menuToggle">
                 <div></div>
                 <div></div>
                 <div></div>
@@ -35,7 +87,7 @@
                     <li><a href="#" class="idioma">EN</a></li>
                 </ul>
             </nav>
-            <nav class="mobile">
+            <nav class="mobile" id="mobileMenu">
                 <ul>
                     <li><a href="#inicio">Inicio</a></li>
                     <li><a href="#catering">Catering</a></li>
@@ -56,7 +108,7 @@
 
     <section id="catering" class="servicios container">
         <h2>Servicios de Catering</h2>
-        <p>Ofrecemos una experiencia exclusiva con cachimbas premium diseñada para realzar cualquier tipo de evento. Nuestro equipo se distingue por su compromiso, profesionalismo y enfoque en la excelencia, garantizando un servicio que supera las expectativas en cada ocasión.</p>
+        <p>Ofrecemos una experiencia exclusiva con cachimbas premium diseñada para realzar cualquier tipo de evento...</p>
         <div class="slider" id="cateringSlider">
             <div class="slider-group">
                 <img src="fotos/catering1.jpg" alt="Clientes disfrutando del catering de cachimbas">
@@ -73,7 +125,7 @@
 
     <section id="alquiler" class="alquiler container">
         <h2>Alquiler de Cachimbas</h2>
-        <p>Proporcionamos cachimbas de alta calidad en alquiler para todo tipo de eventos y ocasiones. Nos ocupamos de entregarte el producto en perfectas condiciones, para que tú solo te concentres en disfrutar y organizar la experiencia a tu manera.</p>
+        <p>Proporcionamos cachimbas de alta calidad en alquiler para todo tipo de eventos y ocasiones...</p>
         <div class="slider" id="alquilerSlider">
             <div class="slider-group">
                 <img src="fotos/cachimba1.jpg" alt="Cachimba premium">
@@ -111,6 +163,15 @@
     <a href="https://wa.me/34684252809" class="floating-button"></a>
 
     <script src="scripts.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const toggle = document.getElementById('menuToggle');
+        const menu = document.getElementById('mobileMenu');
+        toggle.addEventListener('click', () => {
+          const isShown = menu.style.display === 'flex';
+          menu.style.display = isShown ? 'none' : 'flex';
+        });
+      });
+    </script>
 </body>
 </html>
-
