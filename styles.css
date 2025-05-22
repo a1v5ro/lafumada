@@ -116,6 +116,33 @@ header nav.mobile ul li {
         display: flex;
     }
 
+    header nav.mobile {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        right: 0;
+        background-color: #333;
+        border: 1px solid #daa520;
+        border-radius: 5px;
+        width: 200px;
+        text-align: right;
+        z-index: 1000;
+    }
+
+    header nav.mobile ul {
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+        margin: 0;
+    }
+
+    header nav.mobile ul li {
+        margin: 10px 0;
+    }
+}
+
+
     
 }/* Hero Section */
 .hero {
