@@ -39,102 +39,68 @@ header .logo img {
     max-width: 100%;
 }
 
-header nav {
-    flex: 1 1 auto;
+nav.desktop {
     display: flex;
-    justify-content: flex-end;
-    align-items: center;
 }
 
-header nav ul {
+nav.desktop ul {
     list-style: none;
     display: flex;
     margin: 0;
     padding: 0;
 }
 
-header nav ul li {
+nav.desktop ul li {
     margin: 0 20px;
 }
 
-header nav ul li a {
+nav.desktop ul li a {
     color: #fff;
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s;
 }
 
-header nav ul li a:hover {
+nav.desktop ul li a:hover {
     color: #daa520;
 }
 
-/* Menú desplegable para móvil */
-.menu-toggle {
+/* Navegación simplificada para móviles */
+nav.mobile {
     display: none;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    z-index: 1001;
 }
 
-.menu-toggle div {
-    width: 25px;
-    height: 3px;
-    background-color: #fff;
-    margin: 3px 0;
-}
-
-header nav.mobile {
-    display: none;
-    position: absolute;
-    top: 70px;
-    right: 0;
-    background-color: #333;
-    border: 1px solid #daa520;
-    border-radius: 5px;
-    flex-direction: column;
-    width: 200px;
-    text-align: right;
-    z-index: 999;
-}
-
-header nav.mobile ul {
-    flex-direction: column;
-    padding: 10px;
-    margin: 0;
-    list-style: none;
-    display: flex;
-}
-
-header nav.mobile ul li {
-    margin: 10px 0;
-}
-
-header nav.mobile ul li a {
-    color: white;
-    text-decoration: none;
-    padding: 10px;
-    display: block;
-    border-bottom: 1px solid #444;
-}
-
-header nav.mobile ul li a:hover {
-    background-color: #444;
-}
-
-/* Responsive */
-@media (max-width: 1024px) {
-    header nav.desktop {
+@media (max-width: 768px) {
+    nav.desktop {
         display: none;
     }
 
-    .menu-toggle {
+    nav.mobile {
+        display: block;
+        position: fixed;
+        top: 70px;
+        width: 100%;
+        background-color: #333;
+        border-top: 2px solid #daa520;
+        z-index: 999;
+    }
+
+    nav.mobile ul {
+        list-style: none;
         display: flex;
+        justify-content: space-around;
+        margin: 0;
+        padding: 10px 0;
     }
 
-    header nav.mobile {
-        display: none;
+    nav.mobile ul li a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    nav.mobile ul li a:hover {
+        color: #daa520;
     }
 }
 
@@ -178,7 +144,6 @@ header nav.mobile ul li a:hover {
 
 .hero .cta:hover {
     background-color: #c7931b;
-}
 }
 
 /* Página Tienda */
