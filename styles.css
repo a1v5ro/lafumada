@@ -1,4 +1,4 @@
-/* Estilos generales */ 
+/* Estilos generales */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -75,6 +75,7 @@ header nav ul li a:hover {
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    z-index: 1001;
 }
 
 .menu-toggle div {
@@ -95,19 +96,35 @@ header nav.mobile {
     flex-direction: column;
     width: 200px;
     text-align: right;
+    z-index: 999;
 }
 
 header nav.mobile ul {
     flex-direction: column;
     padding: 10px;
+    margin: 0;
+    list-style: none;
+    display: flex;
 }
 
 header nav.mobile ul li {
     margin: 10px 0;
 }
 
+header nav.mobile ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    display: block;
+    border-bottom: 1px solid #444;
+}
+
+header nav.mobile ul li a:hover {
+    background-color: #444;
+}
+
 /* Responsive */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     header nav.desktop {
         display: none;
     }
@@ -118,63 +135,40 @@ header nav.mobile ul li {
 
     header nav.mobile {
         display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 70px;
-        right: 0;
-        background-color: #333;
-        border: 1px solid #daa520;
-        border-radius: 5px;
-        width: 200px;
-        text-align: right;
-        z-index: 1000;
-    }
-
-    header nav.mobile ul {
-        display: flex;
-        flex-direction: column;
-        padding: 10px;
-        margin: 0;
-    }
-
-    header nav.mobile ul li {
-        margin: 10px 0;
     }
 }
 
-
-    
-}/* Hero Section */
+/* Hero Section */
 .hero {
     text-align: center;
-    height: 50vh; /* Ocupa solo la mitad del viewport */
-    background: url('fotos/cateringcachimba1.jpg') no-repeat center center; /* Cambiar la imagen de fondo */
-    background-size: cover; /* Asegura que la imagen cubra todo el espacio */
-    background-position: center bottom; /* Muestra la mitad inferior */
-    color: #fff; /* Texto blanco */
+    height: 50vh;
+    background: url('fotos/cateringcachimba1.jpg') no-repeat center center;
+    background-size: cover;
+    background-position: center bottom;
+    color: #fff;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end; /* Contenido hacia la parte inferior */
+    justify-content: flex-end;
     align-items: center;
-    margin-top: 70px; /* Evita que quede debajo del header */
+    margin-top: 70px;
 }
 
 .hero h1 {
     font-size: 2.5em;
     margin-bottom: 20px;
-    color: #fff; /* Texto blanco brillante */
+    color: #fff;
 }
 
 .hero p {
     font-size: 1.2em;
     margin-bottom: 30px;
-    color: #ddd; /* Blanco más oscuro */
+    color: #ddd;
 }
 
 .hero .cta {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #daa520; /* Botón dorado */
+    background-color: #daa520;
     color: #000;
     font-weight: bold;
     text-decoration: none;
@@ -183,7 +177,8 @@ header nav.mobile ul li {
 }
 
 .hero .cta:hover {
-    background-color: #c7931b; /* Más oscuro */
+    background-color: #c7931b;
+}
 }
 
 /* Página Tienda */
